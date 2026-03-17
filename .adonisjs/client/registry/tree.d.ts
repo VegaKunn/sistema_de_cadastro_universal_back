@@ -2,18 +2,20 @@
 import type { routes } from './index.ts'
 
 export interface ApiDefinition {
-  auth: {
-    newAccount: {
-      store: typeof routes['auth.new_account.store']
-    }
-    accessToken: {
-      store: typeof routes['auth.access_token.store']
-      destroy: typeof routes['auth.access_token.destroy']
-    }
+  categorias: {
+    index: typeof routes['categorias.index']
+    store: typeof routes['categorias.store']
+    show: typeof routes['categorias.show']
+    destroy: typeof routes['categorias.destroy']
   }
-  profile: {
-    profile: {
-      show: typeof routes['profile.profile.show']
-    }
+  campos: {
+    index: typeof routes['campos.index']
+    store: typeof routes['campos.store']
+    destroy: typeof routes['campos.destroy']
+  }
+  registros: {
+    index: typeof routes['registros.index']
+    store: typeof routes['registros.store']
+    destroy: typeof routes['registros.destroy']
   }
 }
