@@ -33,24 +33,28 @@ export class AuthAccessTokenSchema extends BaseModel {
 }
 
 export class CampoSchema extends BaseModel {
-  static $columns = ['categoriaId', 'createdAt', 'id', 'label', 'nome', 'ordem', 'tipo', 'updatedAt'] as const
+  static $columns = ['categoriaId', 'createdAt', 'id', 'label', 'nome', 'obrigatorio', 'opcoes', 'ordem', 'tipo', 'updatedAt'] as const
   $columns = CampoSchema.$columns
   @column()
   declare categoriaId: number | null
   @column.dateTime({ autoCreate: true })
-  declare createdAt: DateTime | null
+  declare createdAt: DateTime
   @column({ isPrimary: true })
   declare id: number
   @column()
-  declare label: string | null
+  declare label: string
   @column()
-  declare nome: string | null
+  declare nome: string
+  @column()
+  declare obrigatorio: boolean | null
+  @column()
+  declare opcoes: string | null
   @column()
   declare ordem: number | null
   @column()
   declare tipo: string | null
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare updatedAt: DateTime | null
+  declare updatedAt: DateTime
 }
 
 export class CategoriaSchema extends BaseModel {
@@ -69,18 +73,48 @@ export class CategoriaSchema extends BaseModel {
 }
 
 export class RegistroSchema extends BaseModel {
-  static $columns = ['categoriaId', 'createdAt', 'dadosJson', 'id', 'updatedAt'] as const
+  static $columns = ['ativo', 'categoriaId', 'codigoBarra', 'createdAt', 'createdBy', 'dadosJson', 'id', 'imagem', 'marca', 'modelo', 'nome', 'peso', 'preco', 'quantidade', 'sku', 'tags', 'unidade', 'updatedAt', 'updatedBy', 'validade'] as const
   $columns = RegistroSchema.$columns
   @column()
-  declare categoriaId: number | null
-  @column.dateTime({ autoCreate: true })
-  declare createdAt: DateTime | null
+  declare ativo: boolean | null
   @column()
-  declare dadosJson: string | null
+  declare categoriaId: number
+  @column()
+  declare codigoBarra: string | null
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
+  @column()
+  declare createdBy: number | null
+  @column()
+  declare dadosJson: any
   @column({ isPrimary: true })
   declare id: number
+  @column()
+  declare imagem: string | null
+  @column()
+  declare marca: string | null
+  @column()
+  declare modelo: string | null
+  @column()
+  declare nome: string
+  @column()
+  declare peso: number | null
+  @column()
+  declare preco: number | null
+  @column()
+  declare quantidade: number | null
+  @column()
+  declare sku: string
+  @column()
+  declare tags: any | null
+  @column()
+  declare unidade: string | null
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare updatedAt: DateTime | null
+  declare updatedAt: DateTime
+  @column()
+  declare updatedBy: number | null
+  @column.date()
+  declare validade: DateTime | null
 }
 
 export class UserSchema extends BaseModel {
