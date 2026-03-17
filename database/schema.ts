@@ -32,6 +32,57 @@ export class AuthAccessTokenSchema extends BaseModel {
   declare updatedAt: DateTime | null
 }
 
+export class CampoSchema extends BaseModel {
+  static $columns = ['categoriaId', 'createdAt', 'id', 'label', 'nome', 'ordem', 'tipo', 'updatedAt'] as const
+  $columns = CampoSchema.$columns
+  @column()
+  declare categoriaId: number | null
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare label: string | null
+  @column()
+  declare nome: string | null
+  @column()
+  declare ordem: number | null
+  @column()
+  declare tipo: string | null
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
+export class CategoriaSchema extends BaseModel {
+  static $columns = ['createdAt', 'id', 'nome', 'slug', 'updatedAt'] as const
+  $columns = CategoriaSchema.$columns
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare nome: string | null
+  @column()
+  declare slug: string | null
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
+export class RegistroSchema extends BaseModel {
+  static $columns = ['categoriaId', 'createdAt', 'dadosJson', 'id', 'updatedAt'] as const
+  $columns = RegistroSchema.$columns
+  @column()
+  declare categoriaId: number | null
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column()
+  declare dadosJson: string | null
+  @column({ isPrimary: true })
+  declare id: number
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
 export class UserSchema extends BaseModel {
   static $columns = ['createdAt', 'email', 'fullName', 'id', 'password', 'updatedAt'] as const
   $columns = UserSchema.$columns
