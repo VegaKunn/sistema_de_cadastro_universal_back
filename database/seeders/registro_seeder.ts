@@ -1,13 +1,22 @@
 import { BaseSeeder } from '@adonisjs/lucid/seeders'
 import { DateTime } from 'luxon'
+
+import Categoria from '#models/categoria'
 import Registro from '#models/registro'
 
 export default class extends BaseSeeder {
   public async run() {
+    const alimentos = await Categoria.findByOrFail('slug', 'alimentos')
+    const bebidas = await Categoria.findByOrFail('slug', 'bebidas')
+    const roupas = await Categoria.findByOrFail('slug', 'roupas')
+    const pecas = await Categoria.findByOrFail('slug', 'pecas-automotivas')
+    const funcionarios = await Categoria.findByOrFail('slug', 'funcionarios')
+    const eletronicos = await Categoria.findByOrFail('slug', 'eletronicos')
+
     await Registro.createMany([
       /* ALIMENTOS */
       {
-        categoriaId: 1,
+        categoriaId: alimentos.id,
         sku: 'ALM001',
         nome: 'Arroz',
         preco: 25.0,
@@ -15,10 +24,10 @@ export default class extends BaseSeeder {
         ativo: true,
         marca: 'Tio João',
         validade: DateTime.fromISO('2026-01-01'),
-        dadosJson: JSON.stringify({ tipo: 'Integral', embalagem: '1kg' }),
+        dadosJson: { tipo: 'Integral', embalagem: '1kg' },
       },
       {
-        categoriaId: 1,
+        categoriaId: alimentos.id,
         sku: 'ALM002',
         nome: 'Feijão',
         preco: 18.0,
@@ -26,12 +35,12 @@ export default class extends BaseSeeder {
         ativo: true,
         marca: 'Carioca',
         validade: DateTime.fromISO('2026-01-01'),
-        dadosJson: JSON.stringify({ tipo: 'Carioca', embalagem: '1kg' }),
+        dadosJson: { tipo: 'Carioca', embalagem: '1kg' },
       },
 
       /* BEBIDAS */
       {
-        categoriaId: 2,
+        categoriaId: bebidas.id,
         sku: 'BEB001',
         nome: 'Refrigerante Cola',
         preco: 6.5,
@@ -39,24 +48,24 @@ export default class extends BaseSeeder {
         ativo: true,
         marca: 'Coca-Cola',
         validade: DateTime.fromISO('2026-01-01'),
-        dadosJson: JSON.stringify({ volume: '2L', tipo: 'Gaseificado' }),
+        dadosJson: { volume: '2L', tipo: 'Gaseificado' },
       },
 
-      /* ROUPAS MASCULINAS */
+      /* ROUPAS */
       {
-        categoriaId: 4,
+        categoriaId: roupas.id,
         sku: 'ROU001',
         nome: 'Camiseta Polo',
         preco: 79.9,
         quantidade: 25,
         ativo: true,
         marca: 'Lacoste',
-        dadosJson: JSON.stringify({ tamanho: 'M', cor: 'Azul' }),
+        dadosJson: { tamanho: 'M', cor: 'Azul' },
       },
 
-      /* PEÇAS AUTOMOTIVAS */
+      /* PEÇAS */
       {
-        categoriaId: 11,
+        categoriaId: pecas.id,
         sku: 'PEC001',
         nome: 'Filtro de Óleo',
         preco: 45.0,
@@ -65,25 +74,25 @@ export default class extends BaseSeeder {
         marca: 'Bosch',
         modelo: 'Fiat Uno 2010',
         peso: 0.5,
-        dadosJson: JSON.stringify({ tipo: 'Filtro', aplicacao: 'Motor 1.0' }),
+        dadosJson: { tipo: 'Filtro', aplicacao: 'Motor 1.0' },
       },
 
       /* FUNCIONÁRIOS */
       {
-        categoriaId: 16,
+        categoriaId: funcionarios.id,
         sku: 'FUNC001',
         nome: 'João Silva',
         ativo: true,
-        dadosJson: JSON.stringify({
+        dadosJson: {
           cargo: 'Instalador',
           salario: 2500.0,
           dataAdmissao: '2023-03-15',
-        }),
+        },
       },
 
       /* ELETRÔNICOS */
       {
-        categoriaId: 9,
+        categoriaId: eletronicos.id,
         sku: 'ELE001',
         nome: 'Notebook Gamer',
         preco: 7500.0,
@@ -91,11 +100,11 @@ export default class extends BaseSeeder {
         ativo: true,
         marca: 'Dell',
         modelo: 'G15',
-        dadosJson: JSON.stringify({
+        dadosJson: {
           processador: 'Intel i7',
           ram: '16GB',
           armazenamento: '512GB SSD',
-        }),
+        },
       },
     ])
   }

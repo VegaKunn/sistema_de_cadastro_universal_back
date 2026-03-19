@@ -7,35 +7,21 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
 
-      // Relação com categoria
-      table
-        .integer('categoria_id')
-        .unsigned()
-        .references('id')
-        .inTable('categorias')
-        .onDelete('CASCADE')
+      // chave interna estável (usada no JSON)
+      table.string('nome').notNullable().unique()
 
-      // Nome interno do campo (para salvar no JSON)
-      table.string('nome').notNullable()
-
-      // Label do campo para mostrar no formulário
       table.string('label').notNullable()
 
-      // Tipo do campo: texto, numero, decimal, select, checkbox, date, imagem
-      table
-        .enu('tipo', ['texto', 'numero', 'decimal', 'select', 'checkbox', 'data', 'imagem'])
-        .defaultTo('texto')
+      // mais flexível que enum
+      table.string('tipo').notNullable()
 
-      // Indica se o campo é obrigatório
-      table.boolean('obrigatorio').defaultTo(false)
+      // opções (select, checkbox, etc)
+      table.json('opcoes').nullable()
 
-      // Ordem de exibição do campo no formulário
-      table.integer('ordem').defaultTo(0)
+      // config extra (placeholder, validações, etc)
+      table.json('config').nullable()
 
-      // Opções em JSON string (usado para select, checkbox)
-      table.text('opcoes').nullable()
-
-      table.timestamps(true, true) // created_at e updated_at com timezone
+      table.timestamps(true, true)
     })
   }
 

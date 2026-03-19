@@ -12,8 +12,11 @@ export default class Registro extends BaseModel {
   declare categoriaId: number
 
   // Dados dinâmicos da categoria
-  @column()
-  declare dadosJson: string
+  @column({
+    prepare: (value) => JSON.stringify(value),
+    consume: (value) => (value ? JSON.parse(value) : value),
+  })
+  declare dadosJson: Record<string, any>
 
   // Campos universais
   @column()

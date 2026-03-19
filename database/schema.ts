@@ -33,10 +33,10 @@ export class AuthAccessTokenSchema extends BaseModel {
 }
 
 export class CampoSchema extends BaseModel {
-  static $columns = ['categoriaId', 'createdAt', 'id', 'label', 'nome', 'obrigatorio', 'opcoes', 'ordem', 'tipo', 'updatedAt'] as const
+  static $columns = ['config', 'createdAt', 'id', 'label', 'nome', 'opcoes', 'tipo', 'updatedAt'] as const
   $columns = CampoSchema.$columns
   @column()
-  declare categoriaId: number | null
+  declare config: any | null
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
   @column({ isPrimary: true })
@@ -46,13 +46,32 @@ export class CampoSchema extends BaseModel {
   @column()
   declare nome: string
   @column()
+  declare opcoes: any | null
+  @column()
+  declare tipo: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime
+}
+
+export class CategoriaCampoSchema extends BaseModel {
+  static $columns = ['campoId', 'categoriaId', 'configOverride', 'createdAt', 'id', 'labelOverride', 'obrigatorio', 'ordem', 'updatedAt'] as const
+  $columns = CategoriaCampoSchema.$columns
+  @column()
+  declare campoId: number
+  @column()
+  declare categoriaId: number
+  @column()
+  declare configOverride: any | null
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare labelOverride: string | null
+  @column()
   declare obrigatorio: boolean | null
   @column()
-  declare opcoes: string | null
-  @column()
   declare ordem: number | null
-  @column()
-  declare tipo: string | null
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 }
@@ -61,15 +80,15 @@ export class CategoriaSchema extends BaseModel {
   static $columns = ['createdAt', 'id', 'nome', 'slug', 'updatedAt'] as const
   $columns = CategoriaSchema.$columns
   @column.dateTime({ autoCreate: true })
-  declare createdAt: DateTime | null
+  declare createdAt: DateTime
   @column({ isPrimary: true })
   declare id: number
   @column()
-  declare nome: string | null
+  declare nome: string
   @column()
-  declare slug: string | null
+  declare slug: string
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare updatedAt: DateTime | null
+  declare updatedAt: DateTime
 }
 
 export class RegistroSchema extends BaseModel {

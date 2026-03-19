@@ -1,14 +1,14 @@
-import { BaseModel, column, belongsTo } from '@adonisjs/lucid/orm'
+import { BaseModel, column, manyToMany } from '@adonisjs/lucid/orm'
+import type { ManyToMany } from '@adonisjs/lucid/types/relations'
 import { DateTime } from 'luxon'
-import type { BelongsTo } from '@adonisjs/lucid/types/relations'
+
 import Categoria from '#models/categoria'
 
 export default class Campo extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
-  @column()
-  declare categoriaId: number
+  // ❌ REMOVIDO: categoriaId (não existe mais)
 
   @column()
   declare nome: string
@@ -19,14 +19,11 @@ export default class Campo extends BaseModel {
   @column()
   declare tipo: 'texto' | 'numero' | 'decimal' | 'select' | 'checkbox' | 'data' | 'imagem'
 
-  @column()
-  declare obrigatorio: boolean
-
-  @column()
-  declare ordem: number
-
-  @column()
-  declare opcoes: string | null // JSON string para selects ou checkboxes
+  @column({
+    prepare: (value) => JSON.stringify(value),
+    consume: (value) => (value ? JSON.parse(value) : value),
+  })
+  declare opcoes: string[] | null
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
@@ -34,7 +31,9 @@ export default class Campo extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  // Relacionamento
-  @belongsTo(() => Categoria)
-  declare categoria: BelongsTo<typeof Categoria>
+  // 🔥 NOVO: relação reversa
+  @manyToMany(() => Categoria, {
+    pivotTable: 'categoria_campos',
+  })
+  declare categorias: ManyToMany<typeof Categoria>
 }

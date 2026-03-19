@@ -1,5 +1,7 @@
+node ace db:seed --files database/seeders/campo_seeder
+
 node ace db:seed --files database/seeders/categoria_seeder
 
-node ace db:seed --files database/seeders/campo_seeder   
+node ace db:seed --files database/seeders/categoria_campo_seeder
 
-node ace db:seed --files database/seeders/registro_seeder 
+node ace db:seed --files database/seeders/registro_seeder
