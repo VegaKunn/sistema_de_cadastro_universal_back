@@ -5,15 +5,10 @@ import Categoria from '#models/categoria'
 
 export default class CamposController {
   // 🔍 Listar campos de uma categoria (via pivot)
-  async index({ params }: HttpContext) {
-    const categoria = await Categoria.query()
-      .where('id', params.categoriaId)
-      .preload('campos', (query) => {
-        query.orderBy('categoria_campos.ordem')
-      })
-      .firstOrFail()
+  async get() {
+    const campos = await Campo.all()
 
-    return categoria.campos
+    return campos
   }
 
   // ➕ Criar um novo campo (GLOBAL, não pertence à categoria)

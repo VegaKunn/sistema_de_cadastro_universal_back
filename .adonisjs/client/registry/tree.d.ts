@@ -6,11 +6,12 @@ export interface ApiDefinition {
     index: typeof routes['categorias.index']
     store: typeof routes['categorias.store']
     show: typeof routes['categorias.show']
+    update: typeof routes['categorias.update']
     destroy: typeof routes['categorias.destroy']
   }
   campos: {
-    index: typeof routes['campos.index']
     store: typeof routes['campos.store']
+    get: typeof routes['campos.get']
     destroy: typeof routes['campos.destroy']
   }
   registros: {

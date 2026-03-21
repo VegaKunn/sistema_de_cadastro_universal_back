@@ -7,9 +7,10 @@ export type ScannedRoutes = {
     'categorias.index': { paramsTuple?: []; params?: {} }
     'categorias.store': { paramsTuple?: []; params?: {} }
     'categorias.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'categorias.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'categorias.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
-    'campos.index': { paramsTuple: [ParamValue]; params: {'categoriaId': ParamValue} }
     'campos.store': { paramsTuple?: []; params?: {} }
+    'campos.get': { paramsTuple?: []; params?: {} }
     'campos.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'registros.index': { paramsTuple: [ParamValue]; params: {'categoriaId': ParamValue} }
     'registros.store': { paramsTuple?: []; params?: {} }
@@ -18,19 +19,22 @@ export type ScannedRoutes = {
   GET: {
     'categorias.index': { paramsTuple?: []; params?: {} }
     'categorias.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
-    'campos.index': { paramsTuple: [ParamValue]; params: {'categoriaId': ParamValue} }
+    'campos.get': { paramsTuple?: []; params?: {} }
     'registros.index': { paramsTuple: [ParamValue]; params: {'categoriaId': ParamValue} }
   }
   HEAD: {
     'categorias.index': { paramsTuple?: []; params?: {} }
     'categorias.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
-    'campos.index': { paramsTuple: [ParamValue]; params: {'categoriaId': ParamValue} }
+    'campos.get': { paramsTuple?: []; params?: {} }
     'registros.index': { paramsTuple: [ParamValue]; params: {'categoriaId': ParamValue} }
   }
   POST: {
     'categorias.store': { paramsTuple?: []; params?: {} }
     'campos.store': { paramsTuple?: []; params?: {} }
     'registros.store': { paramsTuple?: []; params?: {} }
+  }
+  PUT: {
+    'categorias.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   DELETE: {
     'categorias.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }

@@ -43,6 +43,18 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/categorias_controller').default['show']>>>
     }
   }
+  'categorias.update': {
+    methods: ["PUT"]
+    pattern: '/api/v1/categorias/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/categorias_controller').default['update']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/categorias_controller').default['update']>>>
+    }
+  }
   'categorias.destroy': {
     methods: ["DELETE"]
     pattern: '/api/v1/categorias/:id'
@@ -55,18 +67,6 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/categorias_controller').default['destroy']>>>
     }
   }
-  'campos.index': {
-    methods: ["GET","HEAD"]
-    pattern: '/api/v1/categorias/:categoriaId/campos'
-    types: {
-      body: {}
-      paramsTuple: [ParamValue]
-      params: { categoriaId: ParamValue }
-      query: {}
-      response: ExtractResponse<Awaited<ReturnType<import('#controllers/campos_controller').default['index']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/campos_controller').default['index']>>>
-    }
-  }
   'campos.store': {
     methods: ["POST"]
     pattern: '/api/v1/campos'
@@ -77,6 +77,18 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#controllers/campos_controller').default['store']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/campos_controller').default['store']>>>
+    }
+  }
+  'campos.get': {
+    methods: ["GET","HEAD"]
+    pattern: '/api/v1/campos'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/campos_controller').default['get']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/campos_controller').default['get']>>>
     }
   }
   'campos.destroy': {

@@ -24,23 +24,29 @@ const routes = {
     tokens: [{"old":"/api/v1/categorias/:id","type":0,"val":"api","end":""},{"old":"/api/v1/categorias/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/categorias/:id","type":0,"val":"categorias","end":""},{"old":"/api/v1/categorias/:id","type":1,"val":"id","end":""}],
     types: placeholder as Registry['categorias.show']['types'],
   },
+  'categorias.update': {
+    methods: ["PUT"],
+    pattern: '/api/v1/categorias/:id',
+    tokens: [{"old":"/api/v1/categorias/:id","type":0,"val":"api","end":""},{"old":"/api/v1/categorias/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/categorias/:id","type":0,"val":"categorias","end":""},{"old":"/api/v1/categorias/:id","type":1,"val":"id","end":""}],
+    types: placeholder as Registry['categorias.update']['types'],
+  },
   'categorias.destroy': {
     methods: ["DELETE"],
     pattern: '/api/v1/categorias/:id',
     tokens: [{"old":"/api/v1/categorias/:id","type":0,"val":"api","end":""},{"old":"/api/v1/categorias/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/categorias/:id","type":0,"val":"categorias","end":""},{"old":"/api/v1/categorias/:id","type":1,"val":"id","end":""}],
     types: placeholder as Registry['categorias.destroy']['types'],
   },
-  'campos.index': {
-    methods: ["GET","HEAD"],
-    pattern: '/api/v1/categorias/:categoriaId/campos',
-    tokens: [{"old":"/api/v1/categorias/:categoriaId/campos","type":0,"val":"api","end":""},{"old":"/api/v1/categorias/:categoriaId/campos","type":0,"val":"v1","end":""},{"old":"/api/v1/categorias/:categoriaId/campos","type":0,"val":"categorias","end":""},{"old":"/api/v1/categorias/:categoriaId/campos","type":1,"val":"categoriaId","end":""},{"old":"/api/v1/categorias/:categoriaId/campos","type":0,"val":"campos","end":""}],
-    types: placeholder as Registry['campos.index']['types'],
-  },
   'campos.store': {
     methods: ["POST"],
     pattern: '/api/v1/campos',
     tokens: [{"old":"/api/v1/campos","type":0,"val":"api","end":""},{"old":"/api/v1/campos","type":0,"val":"v1","end":""},{"old":"/api/v1/campos","type":0,"val":"campos","end":""}],
     types: placeholder as Registry['campos.store']['types'],
+  },
+  'campos.get': {
+    methods: ["GET","HEAD"],
+    pattern: '/api/v1/campos',
+    tokens: [{"old":"/api/v1/campos","type":0,"val":"api","end":""},{"old":"/api/v1/campos","type":0,"val":"v1","end":""},{"old":"/api/v1/campos","type":0,"val":"campos","end":""}],
+    types: placeholder as Registry['campos.get']['types'],
   },
   'campos.destroy': {
     methods: ["DELETE"],

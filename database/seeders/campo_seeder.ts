@@ -4,16 +4,14 @@ export default class CampoSeeder {
   async run() {
     await Campo.createMany([
       {
-        nome: 'cor',
-        label: 'Cor',
-        tipo: 'select',
-        opcoes: ['vermelho', 'azul', 'verde'],
+        nome: 'sku',
+        label: 'sku',
+        tipo: 'numero',
       },
       {
-        nome: 'tamanho',
-        label: 'Tamanho',
-        tipo: 'select',
-        opcoes: ['P', 'M', 'G'],
+        nome: 'nome',
+        label: 'nome',
+        tipo: 'texto',
       },
       {
         nome: 'peso',
@@ -21,9 +19,49 @@ export default class CampoSeeder {
         tipo: 'decimal',
       },
       {
-        nome: 'descricao',
-        label: 'Descrição',
+        nome: 'preco',
+        label: 'preco',
+        tipo: 'decimal',
+      },
+      {
+        nome: 'atrivo',
+        label: 'atrivo',
+        tipo: 'checkbox',
+      },
+      {
+        nome: 'tags',
+        label: 'tags',
         tipo: 'texto',
+      },
+      {
+        nome: 'marca',
+        label: 'marca',
+        tipo: 'texto',
+      },
+      {
+        nome: 'modelo',
+        label: 'modelo',
+        tipo: 'texto',
+      },
+      {
+        nome: 'unidade',
+        label: 'unidade',
+        tipo: 'decimal',
+      },
+      {
+        nome: 'validade',
+        label: 'validade',
+        tipo: 'data',
+      },
+      {
+        nome: 'codigo_barra',
+        label: 'codigo_barra',
+        tipo: 'texto',
+      },
+      {
+        nome: 'imagem',
+        label: 'imagem',
+        tipo: 'imagem',
       },
     ])
   }

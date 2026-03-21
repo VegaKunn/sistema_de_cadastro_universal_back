@@ -46,7 +46,7 @@ export default class RegistrosController {
 
     const registro = await Registro.create({
       categoriaId,
-      dadosJson: JSON.stringify(dados || {}),
+      dadosJson: dados || {},
       sku,
       nome,
       preco: preco ?? null,
