@@ -6,7 +6,7 @@ export default class CampoSeeder {
       {
         nome: 'sku',
         label: 'sku',
-        tipo: 'numero',
+        tipo: 'texto',
       },
       {
         nome: 'nome',
@@ -16,7 +16,7 @@ export default class CampoSeeder {
       {
         nome: 'peso',
         label: 'Peso',
-        tipo: 'decimal',
+        tipo: 'texto',
       },
       {
         nome: 'preco',

@@ -71,10 +71,11 @@ export default class CategoriaCampoSeeder {
       [campos.quantidade.id]: { obrigatorio: false, ordem: 3 },
       [campos.preco.id]: { obrigatorio: false, ordem: 4 },
       [campos.ativo.id]: { obrigatorio: false, ordem: 5 },
-      [campos.peso.id]: { obrigatorio: false, ordem: 6 },
-      [campos.validade.id]: { obrigatorio: true, ordem: 7 },
-      [campos.codigo_barra.id]: { obrigatorio: false, ordem: 8 },
-      [campos.imagem.id]: { obrigatorio: false, ordem: 9 },
+      [campos.marca.id]: { obrigatorio: false, ordem: 6 },
+      [campos.peso.id]: { obrigatorio: false, ordem: 7 },
+      [campos.validade.id]: { obrigatorio: true, ordem: 8 },
+      [campos.codigo_barra.id]: { obrigatorio: false, ordem: 9 },
+      [campos.imagem.id]: { obrigatorio: false, ordem: 10 },
     })
 
     // --- BEBIDAS ---
