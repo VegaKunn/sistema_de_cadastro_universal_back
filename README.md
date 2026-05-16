@@ -44,19 +44,35 @@ npm install
 node ace migration:run
 ```
 
-### 3. Iniciar ambiente de desenvolvimento
+### 3. Executar as seeds
+
+As seeds devem ser executadas exatamente na ordem abaixo:
+
+```bash
+node ace db:seed --files database/seeders/campo_seeder
+
+node ace db:seed --files database/seeders/categoria_seeder
+
+node ace db:seed --files database/seeders/categoria_campo_seeder
+
+node ace db:seed --files database/seeders/registro_seeder
+
+node ace db:seed --files database/seeders/registro_massivo_seeder
+```
+
+### 4. Iniciar ambiente de desenvolvimento
 
 ```bash
 npm run dev
 ```
 
-### 4. Build do projeto
+### 5. Build do projeto
 
 ```bash
 npm run build
 ```
 
-### 5. Executar projeto em produção
+### 6. Executar projeto em produção
 
 ```bash
 npm run start
@@ -66,15 +82,15 @@ npm run start
 
 ## Scripts Disponíveis
 
-| Comando           | Descrição                           |
-| ----------------- | ----------------------------------- |
-| npm run dev       | Executa servidor em desenvolvimento |
-| npm run start     | Executa servidor em produção        |
-| npm run build     | Gera build da aplicação             |
-| npm run test      | Executa testes                      |
-| npm run lint      | Executa lint                        |
-| npm run format    | Formata o código                    |
-| npm run typecheck | Verifica tipagem TypeScript         |
+| Comando | Descrição |
+|---|---|
+| npm run dev | Executa servidor em desenvolvimento |
+| npm run start | Executa servidor em produção |
+| npm run build | Gera build da aplicação |
+| npm run test | Executa testes |
+| npm run lint | Executa lint |
+| npm run format | Formata o código |
+| npm run typecheck | Verifica tipagem TypeScript |
 
 ---
 
@@ -109,16 +125,16 @@ tmp/db.sqlite3
 
 ## Participantes
 
-| Nome                                | RA       |
-| ----------------------------------- | -------- |
-| Adriano Araujo da Cruz              | 20235386 |
-| André Jesus Cardoso de Oliveira     | 23226686 |
-| Luciana da Cruz Nascimento          | 23210700 |
+| Nome | RA |
+|---|---|
+| Adriano Araujo da Cruz | 20235386 |
+| André Jesus Cardoso de Oliveira | 23226686 |
+| Luciana da Cruz Nascimento | 23210700 |
 | Luiz Fernando de Oliveira Rodrigues | 23212174 |
-| Marcos José de Sousa Barros         | 1707572  |
-| Thiago Garcia Costa                 | 23223697 |
-| Thomas Jonatas Santos de Carvalho   | 23209119 |
-| Wender Augusto Vega                 | 23214669 |
+| Marcos José de Sousa Barros | 1707572 |
+| Thiago Garcia Costa | 23223697 |
+| Thomas Jonatas Santos de Carvalho | 23209119 |
+| Wender Augusto Vega | 23214669 |
 
 ---
 
