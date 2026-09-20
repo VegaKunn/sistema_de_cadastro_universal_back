@@ -1,0 +1,17 @@
+[
+  {
+    "categoriaId": 1,
+    "sku": "ALM001",
+    "nome": "Arroz",
+    "preco": 25,
+    "quantidade": 50,
+    "ativo": true,
+    "marca": "Tio João",
+    "validade": "2026-01-01",
+    "dadosJson": {
+      "tipo": "Integral",
+      "embalagem": "1kg"
+    },
+    "custo": 16.25
+  }
+]

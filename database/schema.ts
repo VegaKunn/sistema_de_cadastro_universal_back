@@ -91,8 +91,31 @@ export class CategoriaSchema extends BaseModel {
   declare updatedAt: DateTime
 }
 
+export class CustosFixoSchema extends BaseModel {
+  static $columns = ['ativo', 'categoria', 'createdAt', 'descricao', 'diaVencimento', 'id', 'nome', 'updatedAt', 'valor'] as const
+  $columns = CustosFixoSchema.$columns
+  @column()
+  declare ativo: boolean
+  @column()
+  declare categoria: string | null
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
+  @column()
+  declare descricao: string | null
+  @column()
+  declare diaVencimento: number | null
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare nome: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime
+  @column()
+  declare valor: number
+}
+
 export class RegistroSchema extends BaseModel {
-  static $columns = ['ativo', 'categoriaId', 'codigoBarra', 'createdAt', 'createdBy', 'dadosJson', 'id', 'imagem', 'marca', 'modelo', 'nome', 'peso', 'preco', 'quantidade', 'sku', 'tags', 'unidade', 'updatedAt', 'updatedBy', 'validade'] as const
+  static $columns = ['ativo', 'categoriaId', 'codigoBarra', 'createdAt', 'createdBy', 'custo', 'dadosJson', 'id', 'imagem', 'marca', 'modelo', 'nome', 'peso', 'preco', 'quantidade', 'sku', 'tags', 'unidade', 'updatedAt', 'updatedBy', 'validade'] as const
   $columns = RegistroSchema.$columns
   @column()
   declare ativo: boolean | null
@@ -104,6 +127,8 @@ export class RegistroSchema extends BaseModel {
   declare createdAt: DateTime
   @column()
   declare createdBy: number | null
+  @column()
+  declare custo: number
   @column()
   declare dadosJson: any
   @column({ isPrimary: true })
@@ -119,7 +144,7 @@ export class RegistroSchema extends BaseModel {
   @column()
   declare peso: number | null
   @column()
-  declare preco: number | null
+  declare preco: number
   @column()
   declare quantidade: number | null
   @column()
@@ -151,4 +176,64 @@ export class UserSchema extends BaseModel {
   declare password: string
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null
+}
+
+export class VendaItenSchema extends BaseModel {
+  static $columns = ['createdAt', 'custoTotal', 'custoUnitario', 'id', 'lucroBruto', 'precoUnitario', 'produtoNome', 'produtoSku', 'quantidade', 'registroId', 'subtotal', 'updatedAt', 'vendaId'] as const
+  $columns = VendaItenSchema.$columns
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
+  @column()
+  declare custoTotal: number
+  @column()
+  declare custoUnitario: number
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare lucroBruto: number
+  @column()
+  declare precoUnitario: number
+  @column()
+  declare produtoNome: string
+  @column()
+  declare produtoSku: string | null
+  @column()
+  declare quantidade: number
+  @column()
+  declare registroId: number | null
+  @column()
+  declare subtotal: number
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime
+  @column()
+  declare vendaId: number
+}
+
+export class VendaSchema extends BaseModel {
+  static $columns = ['createdAt', 'custoTotal', 'desconto', 'formaPagamento', 'id', 'lucroBruto', 'observacao', 'status', 'subtotal', 'total', 'updatedAt', 'usuarioId'] as const
+  $columns = VendaSchema.$columns
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
+  @column()
+  declare custoTotal: number
+  @column()
+  declare desconto: number
+  @column()
+  declare formaPagamento: string | null
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare lucroBruto: number
+  @column()
+  declare observacao: string | null
+  @column()
+  declare status: string
+  @column()
+  declare subtotal: number
+  @column()
+  declare total: number
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime
+  @column()
+  declare usuarioId: number | null
 }

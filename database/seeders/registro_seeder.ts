@@ -4,6 +4,22 @@ import { DateTime } from 'luxon'
 import Categoria from '#models/categoria'
 import Registro from '#models/registro'
 
+function adicionarCustos<T extends { preco?: number | null }>(
+  registros: T[],
+  percentualLucro: number
+) {
+  const percentualCusto = 1 - percentualLucro / 100
+
+  return registros.map((registro) => ({
+    ...registro,
+
+    custo:
+      typeof registro.preco === 'number'
+        ? Number((registro.preco * percentualCusto).toFixed(2))
+        : 0,
+  }))
+}
+
 export default class extends BaseSeeder {
   public async run() {
     const alimentos = await Categoria.findByOrFail('slug', 'alimentos')
@@ -13,7 +29,7 @@ export default class extends BaseSeeder {
     const funcionarios = await Categoria.findByOrFail('slug', 'funcionarios')
     const eletronicos = await Categoria.findByOrFail('slug', 'eletronicos')
 
-    await Registro.createMany([
+    const registros = [
       /* ALIMENTOS */
       {
         categoriaId: alimentos.id,
@@ -544,6 +560,10 @@ export default class extends BaseSeeder {
         validade: DateTime.fromISO('2026-02-15'),
         dadosJson: { tipo: 'Integral', volume: '1L' },
       },
-    ])
+    ]
+
+    const registrosComCusto = adicionarCustos(registros, 35)
+
+    await Registro.createMany(registrosComCusto)
   }
 }

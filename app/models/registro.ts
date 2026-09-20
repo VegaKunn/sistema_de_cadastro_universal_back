@@ -29,6 +29,9 @@ export default class Registro extends BaseModel {
   declare preco: number | null
 
   @column()
+  declare custo: number | null
+
+  @column()
   declare quantidade: number
 
   @column()
