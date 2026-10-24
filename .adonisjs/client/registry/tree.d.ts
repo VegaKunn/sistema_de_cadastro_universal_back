@@ -26,6 +26,10 @@ export interface ApiDefinition {
   }
   custosFixos: {
     index: typeof routes['custos_fixos.index']
+    store: typeof routes['custos_fixos.store']
+    update: typeof routes['custos_fixos.update']
+    alterarStatus: typeof routes['custos_fixos.alterar_status']
+    destroy: typeof routes['custos_fixos.destroy']
   }
   financeiros: {
     resumo: typeof routes['financeiros.resumo']

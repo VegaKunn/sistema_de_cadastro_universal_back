@@ -96,6 +96,30 @@ const routes = {
     tokens: [{"old":"/api/v1/custos-fixos","type":0,"val":"api","end":""},{"old":"/api/v1/custos-fixos","type":0,"val":"v1","end":""},{"old":"/api/v1/custos-fixos","type":0,"val":"custos-fixos","end":""}],
     types: placeholder as Registry['custos_fixos.index']['types'],
   },
+  'custos_fixos.store': {
+    methods: ["POST"],
+    pattern: '/api/v1/custos-fixos',
+    tokens: [{"old":"/api/v1/custos-fixos","type":0,"val":"api","end":""},{"old":"/api/v1/custos-fixos","type":0,"val":"v1","end":""},{"old":"/api/v1/custos-fixos","type":0,"val":"custos-fixos","end":""}],
+    types: placeholder as Registry['custos_fixos.store']['types'],
+  },
+  'custos_fixos.update': {
+    methods: ["PUT"],
+    pattern: '/api/v1/custos-fixos/:id',
+    tokens: [{"old":"/api/v1/custos-fixos/:id","type":0,"val":"api","end":""},{"old":"/api/v1/custos-fixos/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/custos-fixos/:id","type":0,"val":"custos-fixos","end":""},{"old":"/api/v1/custos-fixos/:id","type":1,"val":"id","end":""}],
+    types: placeholder as Registry['custos_fixos.update']['types'],
+  },
+  'custos_fixos.alterar_status': {
+    methods: ["PATCH"],
+    pattern: '/api/v1/custos-fixos/:id/ativo',
+    tokens: [{"old":"/api/v1/custos-fixos/:id/ativo","type":0,"val":"api","end":""},{"old":"/api/v1/custos-fixos/:id/ativo","type":0,"val":"v1","end":""},{"old":"/api/v1/custos-fixos/:id/ativo","type":0,"val":"custos-fixos","end":""},{"old":"/api/v1/custos-fixos/:id/ativo","type":1,"val":"id","end":""},{"old":"/api/v1/custos-fixos/:id/ativo","type":0,"val":"ativo","end":""}],
+    types: placeholder as Registry['custos_fixos.alterar_status']['types'],
+  },
+  'custos_fixos.destroy': {
+    methods: ["DELETE"],
+    pattern: '/api/v1/custos-fixos/:id',
+    tokens: [{"old":"/api/v1/custos-fixos/:id","type":0,"val":"api","end":""},{"old":"/api/v1/custos-fixos/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/custos-fixos/:id","type":0,"val":"custos-fixos","end":""},{"old":"/api/v1/custos-fixos/:id","type":1,"val":"id","end":""}],
+    types: placeholder as Registry['custos_fixos.destroy']['types'],
+  },
   'financeiros.resumo': {
     methods: ["GET","HEAD"],
     pattern: '/api/v1/financeiro/resumo',

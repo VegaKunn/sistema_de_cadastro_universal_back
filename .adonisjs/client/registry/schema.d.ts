@@ -187,6 +187,54 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/custos_fixos_controller').default['index']>>>
     }
   }
+  'custos_fixos.store': {
+    methods: ["POST"]
+    pattern: '/api/v1/custos-fixos'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/custos_fixos_controller').default['store']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/custos_fixos_controller').default['store']>>>
+    }
+  }
+  'custos_fixos.update': {
+    methods: ["PUT"]
+    pattern: '/api/v1/custos-fixos/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/custos_fixos_controller').default['update']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/custos_fixos_controller').default['update']>>>
+    }
+  }
+  'custos_fixos.alterar_status': {
+    methods: ["PATCH"]
+    pattern: '/api/v1/custos-fixos/:id/ativo'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/custos_fixos_controller').default['alterarStatus']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/custos_fixos_controller').default['alterarStatus']>>>
+    }
+  }
+  'custos_fixos.destroy': {
+    methods: ["DELETE"]
+    pattern: '/api/v1/custos-fixos/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/custos_fixos_controller').default['destroy']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/custos_fixos_controller').default['destroy']>>>
+    }
+  }
   'financeiros.resumo': {
     methods: ["GET","HEAD"]
     pattern: '/api/v1/financeiro/resumo'

@@ -19,6 +19,10 @@ export type ScannedRoutes = {
     'vendas.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'vendas.store': { paramsTuple?: []; params?: {} }
     'custos_fixos.index': { paramsTuple?: []; params?: {} }
+    'custos_fixos.store': { paramsTuple?: []; params?: {} }
+    'custos_fixos.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'custos_fixos.alterar_status': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'custos_fixos.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'financeiros.resumo': { paramsTuple?: []; params?: {} }
   }
   GET: {
@@ -46,14 +50,20 @@ export type ScannedRoutes = {
     'campos.store': { paramsTuple?: []; params?: {} }
     'registros.store': { paramsTuple?: []; params?: {} }
     'vendas.store': { paramsTuple?: []; params?: {} }
+    'custos_fixos.store': { paramsTuple?: []; params?: {} }
   }
   PUT: {
     'categorias.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'custos_fixos.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   DELETE: {
     'categorias.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'campos.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'registros.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'custos_fixos.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+  }
+  PATCH: {
+    'custos_fixos.alterar_status': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
 }
 declare module '@adonisjs/core/types/http' {

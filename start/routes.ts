@@ -56,6 +56,10 @@ router
     router
       .group(() => {
         router.get('/', [controllers.CustosFixos, 'index'])
+        router.post('/', [controllers.CustosFixos, 'store'])
+        router.put('/:id', [controllers.CustosFixos, 'update'])
+        router.patch('/:id/ativo', [controllers.CustosFixos, 'alterarStatus'])
+        router.delete('/:id', [controllers.CustosFixos, 'destroy'])
       })
       .prefix('/custos-fixos')
 
