@@ -7,7 +7,10 @@ export const controllers = {
   AccessToken: () => import('#controllers/access_token_controller'),
   Campos: () => import('#controllers/campos_controller'),
   Categorias: () => import('#controllers/categorias_controller'),
+  CustosFixos: () => import('#controllers/custos_fixos_controller'),
+  Financeiros: () => import('#controllers/financeiros_controller'),
   NewAccount: () => import('#controllers/new_account_controller'),
   Profile: () => import('#controllers/profile_controller'),
   Registros: () => import('#controllers/registros_controller'),
+  Vendas: () => import('#controllers/vendas_controller'),
 }

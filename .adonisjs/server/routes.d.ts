@@ -15,23 +15,37 @@ export type ScannedRoutes = {
     'registros.index': { paramsTuple: [ParamValue]; params: {'categoriaId': ParamValue} }
     'registros.store': { paramsTuple?: []; params?: {} }
     'registros.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'vendas.index': { paramsTuple?: []; params?: {} }
+    'vendas.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'vendas.store': { paramsTuple?: []; params?: {} }
+    'custos_fixos.index': { paramsTuple?: []; params?: {} }
+    'financeiros.resumo': { paramsTuple?: []; params?: {} }
   }
   GET: {
     'categorias.index': { paramsTuple?: []; params?: {} }
     'categorias.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'campos.get': { paramsTuple?: []; params?: {} }
     'registros.index': { paramsTuple: [ParamValue]; params: {'categoriaId': ParamValue} }
+    'vendas.index': { paramsTuple?: []; params?: {} }
+    'vendas.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'custos_fixos.index': { paramsTuple?: []; params?: {} }
+    'financeiros.resumo': { paramsTuple?: []; params?: {} }
   }
   HEAD: {
     'categorias.index': { paramsTuple?: []; params?: {} }
     'categorias.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'campos.get': { paramsTuple?: []; params?: {} }
     'registros.index': { paramsTuple: [ParamValue]; params: {'categoriaId': ParamValue} }
+    'vendas.index': { paramsTuple?: []; params?: {} }
+    'vendas.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'custos_fixos.index': { paramsTuple?: []; params?: {} }
+    'financeiros.resumo': { paramsTuple?: []; params?: {} }
   }
   POST: {
     'categorias.store': { paramsTuple?: []; params?: {} }
     'campos.store': { paramsTuple?: []; params?: {} }
     'registros.store': { paramsTuple?: []; params?: {} }
+    'vendas.store': { paramsTuple?: []; params?: {} }
   }
   PUT: {
     'categorias.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }

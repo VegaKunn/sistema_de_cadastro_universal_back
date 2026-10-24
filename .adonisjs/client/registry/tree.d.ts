@@ -19,4 +19,15 @@ export interface ApiDefinition {
     store: typeof routes['registros.store']
     destroy: typeof routes['registros.destroy']
   }
+  vendas: {
+    index: typeof routes['vendas.index']
+    show: typeof routes['vendas.show']
+    store: typeof routes['vendas.store']
+  }
+  custosFixos: {
+    index: typeof routes['custos_fixos.index']
+  }
+  financeiros: {
+    resumo: typeof routes['financeiros.resumo']
+  }
 }

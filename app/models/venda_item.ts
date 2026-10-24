@@ -6,6 +6,8 @@ import Venda from '#models/venda'
 import Registro from '#models/registro'
 
 export default class VendaItem extends VendaItenSchema {
+  static table = 'venda_itens'
+
   @belongsTo(() => Venda, {
     foreignKey: 'vendaId',
   })

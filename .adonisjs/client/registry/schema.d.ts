@@ -139,4 +139,64 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/registros_controller').default['destroy']>>>
     }
   }
+  'vendas.index': {
+    methods: ["GET","HEAD"]
+    pattern: '/api/v1/vendas'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/vendas_controller').default['index']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/vendas_controller').default['index']>>>
+    }
+  }
+  'vendas.show': {
+    methods: ["GET","HEAD"]
+    pattern: '/api/v1/vendas/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/vendas_controller').default['show']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/vendas_controller').default['show']>>>
+    }
+  }
+  'vendas.store': {
+    methods: ["POST"]
+    pattern: '/api/v1/vendas'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/vendas_controller').default['store']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/vendas_controller').default['store']>>>
+    }
+  }
+  'custos_fixos.index': {
+    methods: ["GET","HEAD"]
+    pattern: '/api/v1/custos-fixos'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/custos_fixos_controller').default['index']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/custos_fixos_controller').default['index']>>>
+    }
+  }
+  'financeiros.resumo': {
+    methods: ["GET","HEAD"]
+    pattern: '/api/v1/financeiro/resumo'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/financeiros_controller').default['resumo']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/financeiros_controller').default['resumo']>>>
+    }
+  }
 }

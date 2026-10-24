@@ -72,6 +72,36 @@ const routes = {
     tokens: [{"old":"/api/v1/registros/:id","type":0,"val":"api","end":""},{"old":"/api/v1/registros/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/registros/:id","type":0,"val":"registros","end":""},{"old":"/api/v1/registros/:id","type":1,"val":"id","end":""}],
     types: placeholder as Registry['registros.destroy']['types'],
   },
+  'vendas.index': {
+    methods: ["GET","HEAD"],
+    pattern: '/api/v1/vendas',
+    tokens: [{"old":"/api/v1/vendas","type":0,"val":"api","end":""},{"old":"/api/v1/vendas","type":0,"val":"v1","end":""},{"old":"/api/v1/vendas","type":0,"val":"vendas","end":""}],
+    types: placeholder as Registry['vendas.index']['types'],
+  },
+  'vendas.show': {
+    methods: ["GET","HEAD"],
+    pattern: '/api/v1/vendas/:id',
+    tokens: [{"old":"/api/v1/vendas/:id","type":0,"val":"api","end":""},{"old":"/api/v1/vendas/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/vendas/:id","type":0,"val":"vendas","end":""},{"old":"/api/v1/vendas/:id","type":1,"val":"id","end":""}],
+    types: placeholder as Registry['vendas.show']['types'],
+  },
+  'vendas.store': {
+    methods: ["POST"],
+    pattern: '/api/v1/vendas',
+    tokens: [{"old":"/api/v1/vendas","type":0,"val":"api","end":""},{"old":"/api/v1/vendas","type":0,"val":"v1","end":""},{"old":"/api/v1/vendas","type":0,"val":"vendas","end":""}],
+    types: placeholder as Registry['vendas.store']['types'],
+  },
+  'custos_fixos.index': {
+    methods: ["GET","HEAD"],
+    pattern: '/api/v1/custos-fixos',
+    tokens: [{"old":"/api/v1/custos-fixos","type":0,"val":"api","end":""},{"old":"/api/v1/custos-fixos","type":0,"val":"v1","end":""},{"old":"/api/v1/custos-fixos","type":0,"val":"custos-fixos","end":""}],
+    types: placeholder as Registry['custos_fixos.index']['types'],
+  },
+  'financeiros.resumo': {
+    methods: ["GET","HEAD"],
+    pattern: '/api/v1/financeiro/resumo',
+    tokens: [{"old":"/api/v1/financeiro/resumo","type":0,"val":"api","end":""},{"old":"/api/v1/financeiro/resumo","type":0,"val":"v1","end":""},{"old":"/api/v1/financeiro/resumo","type":0,"val":"financeiro","end":""},{"old":"/api/v1/financeiro/resumo","type":0,"val":"resumo","end":""}],
+    types: placeholder as Registry['financeiros.resumo']['types'],
+  },
 } as const satisfies Record<string, AdonisEndpoint>
 
 export { routes }

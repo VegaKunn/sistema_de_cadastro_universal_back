@@ -16,6 +16,12 @@ function randomInt(min: number, max: number) {
   return Math.floor(randomNumber(min, max))
 }
 
+function calcularCusto(preco: number, percentualLucro = 35) {
+  const percentualCusto = 1 - percentualLucro / 100
+
+  return Number((preco * percentualCusto).toFixed(2))
+}
+
 export default class extends BaseSeeder {
   public async run() {
     const alimentos = await Categoria.findByOrFail('slug', 'alimentos')
@@ -32,11 +38,14 @@ export default class extends BaseSeeder {
     const embalagens = ['500g', '1kg', '5kg']
 
     for (let i = 0; i < 300; i++) {
+      const preco = Number(randomNumber(3, 30).toFixed(2))
+
       registros.push({
         categoriaId: alimentos.id,
         sku: `ALM_REAL_${i}`,
         nome: `Alimento ${i}`,
-        preco: Number(randomNumber(3, 30).toFixed(2)),
+        preco,
+        custo: calcularCusto(preco),
         quantidade: randomInt(50, 300),
         ativo: true,
         marca: randomFrom(['Tio João', 'Camil', 'Nestlé']),
@@ -52,11 +61,14 @@ export default class extends BaseSeeder {
     const volumes = ['350ml', '500ml', '1L', '2L']
 
     for (let i = 0; i < 300; i++) {
+      const preco = Number(randomNumber(2, 15).toFixed(2))
+
       registros.push({
         categoriaId: bebidas.id,
         sku: `BEB_REAL_${i}`,
         nome: `Bebida ${i}`,
-        preco: Number(randomNumber(2, 15).toFixed(2)),
+        preco,
+        custo: calcularCusto(preco),
         quantidade: randomInt(100, 500),
         ativo: true,
         marca: randomFrom(['Coca-Cola', 'Pepsi', 'Ambev']),
@@ -73,11 +85,14 @@ export default class extends BaseSeeder {
     const cores = ['Preto', 'Branco', 'Azul', 'Vermelho']
 
     for (let i = 0; i < 200; i++) {
+      const preco = Number(randomNumber(50, 300).toFixed(2))
+
       registros.push({
         categoriaId: roupas.id,
         sku: `ROU_REAL_${i}`,
         nome: `Roupa ${i}`,
-        preco: Number(randomNumber(50, 300).toFixed(2)),
+        preco,
+        custo: calcularCusto(preco),
         quantidade: randomInt(5, 50),
         ativo: true,
         marca: randomFrom(['Nike', 'Adidas', 'Puma']),
@@ -90,11 +105,14 @@ export default class extends BaseSeeder {
 
     /* ================= PEÇAS ================= */
     for (let i = 0; i < 150; i++) {
+      const preco = Number(randomNumber(30, 500).toFixed(2))
+
       registros.push({
         categoriaId: pecas.id,
         sku: `PEC_REAL_${i}`,
         nome: `Peça ${i}`,
-        preco: Number(randomNumber(30, 500).toFixed(2)),
+        preco,
+        custo: calcularCusto(preco),
         quantidade: randomInt(5, 40),
         ativo: true,
         marca: randomFrom(['Bosch', 'Moura', 'Valeo']),
@@ -109,11 +127,14 @@ export default class extends BaseSeeder {
 
     /* ================= ELETRÔNICOS ================= */
     for (let i = 0; i < 100; i++) {
+      const preco = Number(randomNumber(800, 8000).toFixed(2))
+
       registros.push({
         categoriaId: eletronicos.id,
         sku: `ELE_REAL_${i}`,
         nome: `Eletrônico ${i}`,
-        preco: Number(randomNumber(800, 8000).toFixed(2)),
+        preco,
+        custo: calcularCusto(preco),
         quantidade: randomInt(1, 20),
         ativo: true,
         marca: randomFrom(['Dell', 'Samsung', 'LG']),
@@ -139,6 +160,7 @@ export default class extends BaseSeeder {
         categoriaId: funcionarios.id,
         sku: `FUNC_REAL_${i}`,
         nome: `Funcionario ${i}`,
+        custo: 0,
         ativo: true,
         dadosJson: {
           cargo: cargo.nome,
